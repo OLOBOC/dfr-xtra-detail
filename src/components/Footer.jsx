@@ -68,11 +68,9 @@ export default function Footer() {
             <ul className="footer__nav">
               <li><a href="#inicio">Inicio</a></li>
               <li><a href="#servicios">Servicios de Detailing</a></li>
-              <li><a href="#faros" className="footer__link--accent">Pulido de Faros (Destacado)</a></li>
               <li><a href="#transformaciones">Comparador Antes &amp; Después</a></li>
               <li><a href="#desplazamiento">Servicio con Desplazamiento</a></li>
-              <li><a href="#galeria">Galería Editorial</a></li>
-              <li><a href="#reels">Vídeos de Instagram</a></li>
+              <li><a href="#galeria">Galería en Instagram</a></li>
               <li><a href="#opiniones">Opiniones de Clientes</a></li>
               <li><a href="#sobre-dfr">Sobre DFR Xtra Detail</a></li>
               <li><a href="#contacto">Contacto &amp; Presupuesto</a></li>
@@ -85,10 +83,10 @@ export default function Footer() {
             <ul className="footer__nav">
               {SERVICES.map((s) => (
                 <li key={s.id}>
-                  <a href={`#${s.id === 'faros' ? 'faros' : 'servicios'}`}>{s.title}</a>
+                  <a href="#servicios">{s.title}</a>
                 </li>
               ))}
-              <li><a href="#desplazamiento">Atención en Garaje / Nave</a></li>
+              <li><a href="#desplazamiento">Atención con Desplazamiento</a></li>
             </ul>
           </div>
 

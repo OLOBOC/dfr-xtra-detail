@@ -39,12 +39,11 @@ export default function Navbar() {
           <ul className="navbar__links">
             <li><a href="#inicio" className="navbar__link">Inicio</a></li>
             <li><a href="#servicios" className="navbar__link">Servicios</a></li>
-            <li><a href="#faros" className="navbar__link navbar__link--highlight">Pulido de Faros</a></li>
             <li><a href="#transformaciones" className="navbar__link">Antes &amp; Después</a></li>
             <li><a href="#desplazamiento" className="navbar__link">Desplazamiento</a></li>
             <li><a href="#galeria" className="navbar__link">Galería</a></li>
-            <li><a href="#reels" className="navbar__link">Vídeos</a></li>
             <li><a href="#opiniones" className="navbar__link">Opiniones</a></li>
+            <li><a href="#sobre-dfr" className="navbar__link">Sobre DFR</a></li>
             <li><a href="#contacto" className="navbar__link">Contacto</a></li>
           </ul>
         </nav>
@@ -97,11 +96,9 @@ export default function Navbar() {
           <ul className="navbar__drawer-links">
             <li><a href="#inicio" onClick={closeMenu}>Inicio</a></li>
             <li><a href="#servicios" onClick={closeMenu}>Servicios de Detailing</a></li>
-            <li><a href="#faros" onClick={closeMenu} className="navbar__drawer-link--accent">✦ Pulido de Faros</a></li>
             <li><a href="#transformaciones" onClick={closeMenu}>Comparador Antes &amp; Después</a></li>
             <li><a href="#desplazamiento" onClick={closeMenu}>Servicio con Desplazamiento</a></li>
-            <li><a href="#galeria" onClick={closeMenu}>Galería de Trabajos</a></li>
-            <li><a href="#reels" onClick={closeMenu}>Vídeos &amp; Reels de Instagram</a></li>
+            <li><a href="#galeria" onClick={closeMenu}>Galería en Instagram</a></li>
             <li><a href="#opiniones" onClick={closeMenu}>Opiniones de Clientes</a></li>
             <li><a href="#sobre-dfr" onClick={closeMenu}>Sobre DFR Xtra Detail</a></li>
             <li><a href="#contacto" onClick={closeMenu}>Contacto &amp; Presupuesto</a></li>
