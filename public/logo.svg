@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 130" fill="none" aria-label="DFR Xtra Detail">
+  <!-- Car Silhouette Outline matching the real brand logo -->
+  <path d="M42 42 C70 30, 105 18, 150 16 C190 14, 225 20, 260 36 C272 41, 280 46, 286 48 C272 46, 252 38, 230 32 C198 22, 165 20, 138 21 C98 23, 72 34, 48 44 C42 46, 36 46, 42 42 Z" fill="#ffffff" opacity="0.95"/>
+  <path d="M78 44 C104 34, 136 30, 168 30 C200 30, 226 34, 246 44 C228 38, 198 34, 168 34 C134 34, 104 38, 78 44 Z" fill="#ffffff" opacity="0.7"/>
+
+  <!-- DFR Xtra in electric lime -->
+  <text x="160" y="86" text-anchor="middle" font-family="'Space Grotesk', -apple-system, sans-serif" font-size="34" font-weight="800" letter-spacing="1" fill="#8ce600">
+    DFR Xtra
+  </text>
+  
+  <!-- Limpieza & Detallado in clean refined typography -->
+  <text x="160" y="112" text-anchor="middle" font-family="'Manrope', -apple-system, sans-serif" font-size="14.5" font-weight="400" letter-spacing="3.5" fill="#f1f5f9" opacity="0.9">
+    Limpieza &amp; Detallado
+  </text>
+</svg>

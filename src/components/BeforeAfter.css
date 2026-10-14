@@ -1,0 +1,274 @@
+/* ── Before & After Section ─────────────────────────────────── */
+.before-after {
+  background: var(--bg-base);
+  border-top: 1px solid var(--border-subtle);
+  position: relative;
+}
+
+/* ── Selector de Transformaciones ───────────────────────────── */
+.ba-selector {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+
+.ba-selector::-webkit-scrollbar {
+  display: none;
+}
+
+.ba-selector__btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 14px 20px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  transition: all var(--duration-fast);
+  white-space: nowrap;
+  flex: 1;
+  min-width: 220px;
+}
+
+.ba-selector__btn:hover {
+  border-color: var(--border-medium);
+  background: var(--bg-elevated);
+}
+
+.ba-selector__btn--active {
+  border-color: var(--accent);
+  background: var(--accent-surface);
+}
+
+.ba-selector__tag {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.ba-selector__btn--active .ba-selector__tag {
+  color: var(--accent);
+}
+
+.ba-selector__title {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+}
+
+/* ── Contenedor del Comparador ──────────────────────────────── */
+.ba-slider-container {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-medium);
+  box-shadow: var(--shadow-deep);
+  background: var(--bg-surface);
+}
+
+.compare-view {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  cursor: ew-resize;
+  user-select: none;
+  touch-action: none;
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .compare-view {
+    aspect-ratio: 4/3;
+  }
+}
+
+.compare-view:focus-visible {
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+.compare-view--active {
+  cursor: grabbing;
+}
+
+/* Imágenes */
+.compare-view__after,
+.compare-view__before {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.compare-view__after {
+  width: 100%;
+}
+
+.compare-view__before {
+  /* Ancho controlado por inline style según la posición del slider */
+  z-index: 2;
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.compare-view__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  max-width: none;
+}
+
+.compare-view__img--before {
+  /* La imagen del before mantiene las dimensiones del contenedor completo */
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Badges de ANTES y DESPUÉS ──────────────────────────────── */
+.compare-view__badge {
+  position: absolute;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: rgba(6, 7, 9, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 8px 14px;
+  border-radius: var(--radius-xs);
+  pointer-events: none;
+  z-index: 5;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.compare-view__badge--before {
+  left: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.compare-view__badge--after {
+  right: 20px;
+  border: 1px solid var(--accent-border);
+  align-items: flex-end;
+}
+
+.compare-view__badge-tag {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.compare-view__badge--before .compare-view__badge-tag {
+  color: #f87171;
+}
+
+.compare-view__badge--after .compare-view__badge-tag {
+  color: var(--accent);
+}
+
+.compare-view__badge-text {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* ── Divisor & Handle ───────────────────────────────────────── */
+.compare-view__handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.compare-view__handle-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.compare-view__handle-knob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  background: #ffffff;
+  color: #070903;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  transition: transform var(--duration-fast) var(--ease-spring);
+}
+
+.compare-view--active .compare-view__handle-knob {
+  transform: translate(-50%, -50%) scale(1.12);
+  background: var(--accent);
+}
+
+/* ── Metadatos y CTA de la Transformación ────────────────────── */
+.ba-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  padding: 24px 0 0;
+  flex-wrap: wrap;
+}
+
+.ba-meta__info {
+  max-width: 680px;
+}
+
+.ba-meta__cat {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.ba-meta__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.ba-meta__desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.ba-meta__action {
+  flex-shrink: 0;
+}

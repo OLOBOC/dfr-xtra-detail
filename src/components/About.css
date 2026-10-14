@@ -1,0 +1,185 @@
+/* ── About Section ──────────────────────────────────────────── */
+.about {
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border-subtle);
+  position: relative;
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Manifest Column ────────────────────────────────────────── */
+.about__manifest {
+  display: flex;
+  flex-direction: column;
+}
+
+.about__logo-box {
+  margin-bottom: 28px;
+}
+
+.about__lead-quote {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  border-left: 2px solid var(--accent);
+  padding-left: 20px;
+}
+
+.about__body-text {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+.about__body-text strong {
+  color: var(--text-primary);
+}
+
+.about__bio-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 22px 26px;
+  position: relative;
+}
+
+.about__bio-label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.about__bio-quote {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  font-family: var(--font-display);
+}
+
+.about__bio-link {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  transition: color var(--duration-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.about__bio-link:hover {
+  color: var(--accent);
+}
+
+/* ── Pillars Column ─────────────────────────────────────────── */
+.about__pillars {
+  display: flex;
+  flex-direction: column;
+}
+
+.about__pillars-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+}
+
+.about__pillars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.about__pillar-card {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--duration-fast);
+}
+
+.about__pillar-card:hover {
+  border-color: var(--accent-border);
+}
+
+.about__pillar-num {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--accent);
+  background: var(--accent-surface);
+  border: 1px solid var(--accent-border);
+  padding: 4px 8px;
+  height: fit-content;
+  border-radius: var(--radius-xs);
+  flex-shrink: 0;
+}
+
+.about__pillar-heading {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.about__pillar-desc {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ── Reviews Transparency Notice ────────────────────────────── */
+.about__reviews-notice {
+  display: flex;
+  gap: 14px;
+  padding: 18px 22px;
+  background: rgba(140, 230, 0, 0.04);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.about__reviews-icon {
+  color: var(--accent);
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.about__reviews-notice strong {
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

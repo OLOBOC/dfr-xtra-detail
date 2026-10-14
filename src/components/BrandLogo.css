@@ -1,0 +1,28 @@
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+
+.brand-logo__svg {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  transition: transform var(--duration-fast) var(--ease-smooth);
+}
+
+.brand-logo--small {
+  height: 38px;
+}
+
+.brand-logo--medium {
+  height: 48px;
+}
+
+.brand-logo--large {
+  height: 72px;
+}
+
+.brand-logo:hover .brand-logo__svg {
+  transform: scale(1.02);
+}

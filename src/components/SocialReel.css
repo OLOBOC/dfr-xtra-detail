@@ -1,0 +1,171 @@
+/* ── Social Reel Section ────────────────────────────────────── */
+.social-reel {
+  background: var(--bg-base);
+  border-top: 1px solid var(--border-subtle);
+  position: relative;
+}
+
+.social-reel__header-action {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.social-reel__follow-btn {
+  gap: 10px;
+}
+
+/* ── Grid de Reels Verticales ───────────────────────────────── */
+.social-reel__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .social-reel__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .social-reel__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Tarjeta de Reel ────────────────────────────────────────── */
+.reel-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: transform var(--duration-med) var(--ease-smooth),
+              border-color var(--duration-med),
+              box-shadow var(--duration-med);
+  display: flex;
+  flex-direction: column;
+}
+
+.reel-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-border);
+  box-shadow: var(--shadow-deep);
+}
+
+.reel-card__media {
+  position: relative;
+  aspect-ratio: 9/12;
+  overflow: hidden;
+  background: var(--bg-elevated);
+}
+
+.reel-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-smooth);
+}
+
+.reel-card:hover .reel-card__img {
+  transform: scale(1.05);
+}
+
+.reel-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 7, 9, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--duration-fast);
+}
+
+.reel-card:hover .reel-card__overlay {
+  background: rgba(6, 7, 9, 0.2);
+}
+
+.reel-card__play-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(140, 230, 0, 0.9);
+  color: #070903;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transform: scale(0.9);
+  transition: transform var(--duration-fast) var(--ease-spring);
+}
+
+.reel-card:hover .reel-card__play-btn {
+  transform: scale(1.05);
+  background: var(--accent);
+}
+
+.reel-card__badge-bar {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reel-card__instagram-icon {
+  background: rgba(6, 7, 9, 0.7);
+  backdrop-filter: blur(8px);
+  padding: 6px;
+  border-radius: 50%;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reel-card__body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.reel-card__cat {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.reel-card__title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+
+.reel-card__link-text {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: color var(--duration-fast);
+}
+
+.reel-card:hover .reel-card__link-text {
+  color: var(--accent);
+}
