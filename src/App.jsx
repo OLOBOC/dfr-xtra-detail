@@ -7,6 +7,7 @@ import MobileService from './components/MobileService';
 import Gallery from './components/Gallery';
 import SocialReel from './components/SocialReel';
 import About from './components/About';
+import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import './App.css';
@@ -42,6 +43,7 @@ function App() {
         <Gallery />
         <SocialReel />
         <About />
+        <Testimonials />
         <Contact />
       </main>
       <Footer />

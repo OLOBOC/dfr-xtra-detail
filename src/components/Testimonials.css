@@ -1,0 +1,189 @@
+/* ── Testimonials Section ───────────────────────────────────── */
+.testimonials {
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border-subtle);
+  position: relative;
+}
+
+.testimonials__header-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.testimonials__rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 100px;
+}
+
+.testimonials__stars {
+  display: flex;
+  gap: 3px;
+  color: var(--accent);
+  font-size: 0.95rem;
+}
+
+.testimonials__rating-text {
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* ── Grid de Opiniones ──────────────────────────────────────── */
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 960px) {
+  .testimonials__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .testimonials__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Tarjeta de Reseña ──────────────────────────────────────── */
+.review-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: clamp(24px, 3vw, 32px);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--duration-med) var(--ease-smooth),
+              border-color var(--duration-med);
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-medium);
+}
+
+.review-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.review-card__stars {
+  display: flex;
+  gap: 2px;
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+.review-card__comment {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-style: normal;
+  margin-bottom: 28px;
+  flex: 1;
+}
+
+.review-card__footer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.review-card__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent-surface);
+  border: 1px solid var(--accent-border);
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.review-card__author {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.review-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.review-card__sep {
+  opacity: 0.5;
+}
+
+.review-card__service {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ── Banner Inferior de Reseñas ─────────────────────────────── */
+.testimonials__banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 32px;
+  background: rgba(140, 230, 0, 0.04);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-sm);
+  flex-wrap: wrap;
+}
+
+.testimonials__banner-content {
+  max-width: 680px;
+}
+
+.testimonials__banner-tag {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.testimonials__banner-text {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.testimonials__banner-btn {
+  flex-shrink: 0;
+}

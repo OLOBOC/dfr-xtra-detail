@@ -1,14 +1,42 @@
-import { INSTAGRAM_URL, INSTAGRAM_HANDLE, INSTAGRAM_HIGHLIGHTS } from '../config/site.config';
+import { useState, useEffect } from 'react';
+import {
+  INSTAGRAM_URL,
+  INSTAGRAM_HANDLE,
+  INSTAGRAM_STORIES,
+  INSTAGRAM_HIGHLIGHTS,
+} from '../config/site.config';
+import BrandLogo from './BrandLogo';
 import './SocialReel.css';
 
 export default function SocialReel() {
+  const [activeReel, setActiveReel] = useState(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [likesCount, setLikesCount] = useState({});
+
+  useEffect(() => {
+    // Initialize like counts
+    const initialLikes = {};
+    INSTAGRAM_HIGHLIGHTS.forEach((r) => {
+      initialLikes[r.id] = r.likes;
+    });
+    setLikesCount(initialLikes);
+  }, []);
+
+  const handleLike = (reelId, e) => {
+    e.stopPropagation();
+    setLikesCount((prev) => ({
+      ...prev,
+      [reelId]: (prev[reelId] || 100) + 1,
+    }));
+  };
+
   return (
-    <section id="redes" className="section social-reel" aria-labelledby="social-heading">
+    <section id="reels" className="section social-reel" aria-labelledby="social-heading">
       <div className="container">
         {/* Section Header */}
         <div className="section-head section-head--split reveal">
           <div>
-            <span className="kicker">Seguimiento en Vivo</span>
+            <span className="kicker">Seguimiento en Vídeo</span>
             <h2 className="display-xl" id="social-heading">
               DFR Xtra<br />
               <span className="text-accent">En Instagram</span>
@@ -16,8 +44,8 @@ export default function SocialReel() {
           </div>
           <div className="social-reel__header-action">
             <p className="lead-text">
-              Publicamos de forma continuada el progreso técnico, los baños de espuma activa,
-              las pruebas de luz y las transformaciones de faros y pintura en Asturias.
+              Trabajos reales documentados paso a paso en Gijón y Asturias. 
+              Haz clic en cualquier reel para reproducir el proceso técnico y ver los resultados en directo.
             </p>
             <a
               href={INSTAGRAM_URL}
@@ -28,21 +56,69 @@ export default function SocialReel() {
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
               </svg>
-              <span>Seguir {INSTAGRAM_HANDLE}</span>
+              <span>Ver perfil {INSTAGRAM_HANDLE}</span>
             </a>
           </div>
         </div>
 
-        {/* Reels Vertical Grid */}
+        {/* ── Perfil de Instagram & Stories Destacadas Reales ── */}
+        <div className="instagram-bar reveal">
+          <div className="instagram-bar__profile">
+            <div className="instagram-bar__avatar-ring">
+              <div className="instagram-bar__avatar">
+                <BrandLogo size="small" />
+              </div>
+            </div>
+            <div className="instagram-bar__info">
+              <div className="instagram-bar__name-row">
+                <span className="instagram-bar__handle">{INSTAGRAM_HANDLE}</span>
+                <span className="tag-badge tag-badge--accent">Oficial</span>
+              </div>
+              <p className="instagram-bar__bio">
+                Detallado de vehículos 🏎️ ASTURIAS 🏠 · Gijón
+              </p>
+            </div>
+          </div>
+
+          {/* Stories Destacadas Reales (Faros 💡, Lavado 🧼, Proyectos 🚀) */}
+          <div className="instagram-bar__stories">
+            {INSTAGRAM_STORIES.map((story) => (
+              <a
+                key={story.id}
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="instagram-story"
+              >
+                <div className="instagram-story__ring">
+                  <img
+                    src={story.image}
+                    alt={story.label}
+                    className="instagram-story__img"
+                  />
+                </div>
+                <span className="instagram-story__label">
+                  {story.emoji} {story.label}
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Grid de Reels de Instagram Reales ── */}
         <div className="social-reel__grid reveal reveal-delay-1">
           {INSTAGRAM_HIGHLIGHTS.map((item) => (
-            <a
+            <div
               key={item.id}
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
               className="reel-card"
-              aria-label={`Ver publicación en Instagram: ${item.title}`}
+              onClick={() => {
+                setActiveReel(item);
+                setIsPlaying(true);
+              }}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && setActiveReel(item)}
+              aria-label={`Reproducir Reel: ${item.title}`}
             >
               <div className="reel-card__media">
                 <img
@@ -51,38 +127,151 @@ export default function SocialReel() {
                   className="reel-card__img"
                   loading="lazy"
                 />
+
                 <div className="reel-card__overlay">
                   <div className="reel-card__play-btn" aria-hidden="true">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M8 5v14l11-7z" />
                     </svg>
                   </div>
+                  <span className="reel-card__play-label">Reproducir Vídeo</span>
                 </div>
 
                 <div className="reel-card__badge-bar">
                   <span className="tag-badge tag-badge--neutral">{item.tag}</span>
-                  <span className="reel-card__instagram-icon" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/>
-                    </svg>
-                  </span>
+                  <div className="reel-card__stats">
+                    <span>❤️ {likesCount[item.id] || item.likes}</span>
+                  </div>
                 </div>
               </div>
 
               <div className="reel-card__body">
                 <span className="reel-card__cat">{item.category}</span>
                 <h4 className="reel-card__title">{item.title}</h4>
+                <p className="reel-card__caption-preview">{item.caption}</p>
                 <div className="reel-card__link-text">
-                  <span>Abrir en Instagram</span>
+                  <span>Ver Reel Interactivo</span>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M7 17l10-10M17 17V7H7" />
                   </svg>
                 </div>
               </div>
-            </a>
+            </div>
           ))}
         </div>
       </div>
+
+      {/* ── Modal Interactivo de Vídeo Reel Estilo Instagram ── */}
+      {activeReel && (
+        <div
+          className="reel-modal"
+          onClick={() => setActiveReel(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Vídeo Reel: ${activeReel.title}`}
+        >
+          <div className="reel-modal__phone" onClick={(e) => e.stopPropagation()}>
+            {/* Close button */}
+            <button
+              className="reel-modal__close"
+              onClick={() => setActiveReel(null)}
+              aria-label="Cerrar reproductor"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* Simulated Reel Progress Bar */}
+            <div className="reel-modal__progress-bar">
+              <div
+                className={`reel-modal__progress-fill ${isPlaying ? 'reel-modal__progress-fill--animated' : ''}`}
+              />
+            </div>
+
+            {/* Video / Visual Container with animated motion */}
+            <div
+              className="reel-modal__video-wrap"
+              onClick={() => setIsPlaying(!isPlaying)}
+            >
+              <img
+                src={activeReel.image}
+                alt={activeReel.title}
+                className={`reel-modal__video-sim ${isPlaying ? 'reel-modal__video-sim--playing' : ''}`}
+              />
+
+              {/* Pause overlay icon */}
+              {!isPlaying && (
+                <div className="reel-modal__paused-overlay">
+                  <div className="reel-modal__paused-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </div>
+              )}
+
+              {/* Instagram Top Bar */}
+              <div className="reel-modal__top-info">
+                <div className="reel-modal__author-info">
+                  <span className="reel-modal__author-name">{INSTAGRAM_HANDLE}</span>
+                  <span className="reel-modal__dot">·</span>
+                  <a
+                    href={activeReel.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="reel-modal__follow-tag"
+                  >
+                    Seguir
+                  </a>
+                </div>
+                <div className="reel-modal__audio-badge">
+                  <span className="reel-modal__audio-wave">♫</span>
+                  <span>Audio Original · DFR Xtra</span>
+                </div>
+              </div>
+
+              {/* Right Side Social Actions Rail */}
+              <div className="reel-modal__actions-rail">
+                <button
+                  className="reel-modal__action-btn"
+                  onClick={(e) => handleLike(activeReel.id, e)}
+                  title="Dar Me Gusta"
+                >
+                  <span className="reel-modal__action-icon">❤️</span>
+                  <span className="reel-modal__action-count">
+                    {likesCount[activeReel.id] || activeReel.likes}
+                  </span>
+                </button>
+                <div className="reel-modal__action-btn" title="Comentarios">
+                  <span className="reel-modal__action-icon">💬</span>
+                  <span className="reel-modal__action-count">{activeReel.comments}</span>
+                </div>
+                <div className="reel-modal__action-btn" title="Compartir">
+                  <span className="reel-modal__action-icon">✈️</span>
+                </div>
+              </div>
+
+              {/* Bottom Caption & Instagram Link */}
+              <div className="reel-modal__caption-box">
+                <span className="tag-badge tag-badge--accent">{activeReel.tag}</span>
+                <p className="reel-modal__caption-text">{activeReel.caption}</p>
+                <a
+                  href={activeReel.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary reel-modal__ig-btn"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/>
+                  </svg>
+                  <span>Abrir publicación en Instagram</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

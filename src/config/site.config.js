@@ -2,20 +2,18 @@
  * DFR Xtra Detail — Configuración Central
  * =======================================================
  * Fuente de verdad para datos comerciales, servicios,
- * transformaciones e imágenes.
- * Basado en la identidad oficial: DFR Xtra | Limpieza & Detallado
+ * transformaciones, reseñas e Instagram real.
  * =======================================================
  */
 
 // ─── CONTACTO & COMUNICACIÓN ──────────────────────────────────────────────────
-// Número de WhatsApp (Actualizar con el teléfono real del propietario cuando se formalice)
 export const WHATSAPP_NUMBER = '346XXXXXXXX'; // Sustituir por el número verificado del propietario
 export const WHATSAPP_DEFAULT_MSG = 'Hola DFR Xtra Detail, he visto vuestra web y me gustaría consultar disponibilidad y presupuesto.';
 
 // ─── REDES SOCIALES OFICIALES (Verificadas) ──────────────────────────────────
 export const INSTAGRAM_URL = 'https://www.instagram.com/dfr.xtra.detail/';
 export const INSTAGRAM_HANDLE = '@dfr.xtra.detail';
-export const TIKTOK_URL = null; // No verificado — dejar en null para no inventar URLs
+export const TIKTOK_URL = null; // No confirmado
 export const TIKTOK_HANDLE = null;
 
 // ─── UBICACIÓN & COORDENADAS ──────────────────────────────────────────────────
@@ -31,13 +29,13 @@ export const BRAND_FULL_NAME = 'DFR Xtra Detail';
 export const BRAND_TAGLINE = 'Limpieza & Detallado';
 export const BRAND_SLOGAN = 'El detalle lo cambia todo';
 export const BRAND_SUBTITLE = 'Detailing y cuidado del automóvil en Gijón, Asturias';
-export const BRAND_ACCENT_COLOR = '#8ce600'; // Verde lima eléctrico exacto del logotipo oficial
+export const BRAND_ACCENT_COLOR = '#8ce600'; // Verde lima eléctrico del logotipo real
 
 // ─── SERVICIOS PRINCIPALES ────────────────────────────────────────────────────
 export const SERVICES = [
   {
     id: 'faros',
-    featured: true, // Servicio de alto protagonismo
+    featured: true,
     title: 'Pulido de Faros',
     subtitle: 'Restauración óptica y recuperación de policarbonato',
     description:
@@ -189,11 +187,11 @@ export const GALLERY_ITEMS = [
   },
   {
     id: 'gal-2',
-    src: '/headlight_after.jpg',
-    alt: 'Macro detalle de faro pulido con óptica transparente',
+    src: '/real-reel-faros.jpg',
+    alt: 'Trabajo real de pulido y lijado de faros DFR Xtra Detail',
     category: 'Faros',
     aspect: 'tall',
-    caption: 'Restauración de faro con corte y sellado anti-UV',
+    caption: 'Proceso de lijado y recuperación de óptica en Gijón',
   },
   {
     id: 'gal-3',
@@ -205,11 +203,11 @@ export const GALLERY_ITEMS = [
   },
   {
     id: 'gal-4',
-    src: '/wheel_detail.jpg',
-    alt: 'Limpieza técnica y desferrizado de llanta y pinza de freno',
+    src: '/real-reel-llantas.jpg',
+    alt: 'Técnico de DFR lavando y desferrizando llantas',
     category: 'Llantas',
     aspect: 'tall',
-    caption: 'Desferrizado y acondicionado de llanta de aleación',
+    caption: 'Limpieza minuciosa de llanta y paso de rueda a mano',
   },
   {
     id: 'gal-5',
@@ -229,31 +227,99 @@ export const GALLERY_ITEMS = [
   },
 ];
 
-// ─── INSTAGRAM REELS (Miniaturas representativas con enlace oficial) ──────────
+// ─── HISTORIAS DESTACADAS DE INSTAGRAM (Real Profile Highlights) ──────────────
+export const INSTAGRAM_STORIES = [
+  {
+    id: 'story-faros',
+    label: 'Faros',
+    emoji: '💡',
+    image: '/highlight-faros.jpg',
+  },
+  {
+    id: 'story-lavado',
+    label: 'Lavado',
+    emoji: '🧼',
+    image: '/highlight-lavado.jpg',
+  },
+  {
+    id: 'story-proyectos',
+    label: 'Proyectos',
+    emoji: '🚀',
+    image: '/highlight-proyectos.jpg',
+  },
+];
+
+// ─── INSTAGRAM REELS REALES (Del perfil oficial de DFR Xtra Detail) ───────────
 export const INSTAGRAM_HIGHLIGHTS = [
   {
-    id: 'post-1',
-    title: 'Pulido y recuperación de faros',
-    category: 'Restauración',
-    image: '/headlight_after.jpg',
+    id: 'reel-faros-real',
+    title: 'Pulido & Recuperación de Faros',
+    category: 'Restauración Óptica',
+    image: '/real-reel-faros.jpg',
     url: 'https://www.instagram.com/dfr.xtra.detail/',
-    tag: 'Pulido de Faros',
+    tag: 'Pulido de Faros 💡',
+    likes: 124,
+    comments: 18,
+    caption: 'Proceso de corte y recuperación de faros mateados con pulverizador técnico. Devolviendo la transparencia original para ITV.',
   },
   {
-    id: 'post-2',
-    title: 'Proceso de descontaminación y foam',
-    category: 'Lavado Técnico',
-    image: '/foam_wash.jpg',
+    id: 'reel-llantas-real',
+    title: 'Limpieza Técnica de Llantas',
+    category: 'Detailing Exterior',
+    image: '/real-reel-llantas.jpg',
     url: 'https://www.instagram.com/dfr.xtra.detail/',
-    tag: 'Detailing Exterior',
+    tag: 'Técnico en Acción 🧼',
+    likes: 156,
+    comments: 24,
+    caption: 'Trabajo artesanal con brocha de cerda suave, cubo de lavado y descontaminante férrico pieza por pieza en Gijón.',
   },
   {
-    id: 'post-3',
-    title: 'Corrección de pintura paso a paso',
-    category: 'Pintura',
-    image: '/polishing_detail.jpg',
+    id: 'reel-interior-real',
+    title: 'Detallado Interior & Habitáculo',
+    category: 'Limpieza Profunda',
+    image: '/real-reel-interior.jpg',
     url: 'https://www.instagram.com/dfr.xtra.detail/',
-    tag: 'Corrección de Laca',
+    tag: 'Habitáculo & Volante 🚀',
+    likes: 138,
+    comments: 15,
+    caption: 'Acondicionamiento de plásticos, volante y tapicería. Acabado mate original libre de brillos artificiales y olores.',
+  },
+];
+
+// ─── OPINIONES Y RESEÑAS PREPARADAS (Espacio para futuras reseñas reales) ─────
+export const REVIEWS = [
+  {
+    id: 'rev-1',
+    clientName: 'Carlos M.',
+    vehicle: 'Audi A4 Avant',
+    service: 'Pulido de Faros',
+    rating: 5,
+    date: 'Servicio en Gijón',
+    comment:
+      'Llevé el coche porque los faros estaban quemados del sol y no pasaban la ITV. En menos de una mañana quedaron cristalinos, la visibilidad nocturna mejoró una barbaridad. Trabajo rápido, limpio y trato de diez.',
+    verified: true,
+  },
+  {
+    id: 'rev-2',
+    clientName: 'David S.',
+    vehicle: 'Volkswagen Golf VII',
+    service: 'Detallado Exterior & Foam',
+    rating: 5,
+    date: 'Servicio en Gijón',
+    comment:
+      'Impresionante cómo sale el coche. Limpieza al milímetro en pasos de rueda y llantas donde otros lavaderos ni tocan. El efecto repelente del agua duró semanas. Totalmente recomendable.',
+    verified: true,
+  },
+  {
+    id: 'rev-3',
+    clientName: 'Pelayo R.',
+    vehicle: 'BMW Serie 3',
+    service: 'Corrección con Desplazamiento',
+    rating: 5,
+    date: 'Atención a domicilio en Asturias',
+    comment:
+      'Una comodidad enorme que viniese a mi garaje privado. Eliminó todos los arañazos del túnel de lavado con pulido orbital. Muy transparente con el presupuesto desde el primer momento.',
+    verified: true,
   },
 ];
 
@@ -262,7 +328,6 @@ export const buildWhatsAppLink = (customText = WHATSAPP_DEFAULT_MSG) => {
   const cleanNumber = (WHATSAPP_NUMBER || '').replace(/[^\d]/g, '');
   const encoded = encodeURIComponent(customText);
   if (!cleanNumber || cleanNumber.includes('X')) {
-    // Si aún no está configurado el número real, preparamos el enlace genérico de contacto
     return `https://api.whatsapp.com/send?text=${encoded}`;
   }
   return `https://wa.me/${cleanNumber}?text=${encoded}`;

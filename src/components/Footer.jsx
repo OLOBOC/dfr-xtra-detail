@@ -72,6 +72,8 @@ export default function Footer() {
               <li><a href="#transformaciones">Comparador Antes &amp; Después</a></li>
               <li><a href="#desplazamiento">Servicio con Desplazamiento</a></li>
               <li><a href="#galeria">Galería Editorial</a></li>
+              <li><a href="#reels">Vídeos de Instagram</a></li>
+              <li><a href="#opiniones">Opiniones de Clientes</a></li>
               <li><a href="#sobre-dfr">Sobre DFR Xtra Detail</a></li>
               <li><a href="#contacto">Contacto &amp; Presupuesto</a></li>
             </ul>

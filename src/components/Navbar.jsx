@@ -43,7 +43,8 @@ export default function Navbar() {
             <li><a href="#transformaciones" className="navbar__link">Antes &amp; Después</a></li>
             <li><a href="#desplazamiento" className="navbar__link">Desplazamiento</a></li>
             <li><a href="#galeria" className="navbar__link">Galería</a></li>
-            <li><a href="#sobre-dfr" className="navbar__link">Sobre DFR</a></li>
+            <li><a href="#reels" className="navbar__link">Vídeos</a></li>
+            <li><a href="#opiniones" className="navbar__link">Opiniones</a></li>
             <li><a href="#contacto" className="navbar__link">Contacto</a></li>
           </ul>
         </nav>
@@ -100,6 +101,8 @@ export default function Navbar() {
             <li><a href="#transformaciones" onClick={closeMenu}>Comparador Antes &amp; Después</a></li>
             <li><a href="#desplazamiento" onClick={closeMenu}>Servicio con Desplazamiento</a></li>
             <li><a href="#galeria" onClick={closeMenu}>Galería de Trabajos</a></li>
+            <li><a href="#reels" onClick={closeMenu}>Vídeos &amp; Reels de Instagram</a></li>
+            <li><a href="#opiniones" onClick={closeMenu}>Opiniones de Clientes</a></li>
             <li><a href="#sobre-dfr" onClick={closeMenu}>Sobre DFR Xtra Detail</a></li>
             <li><a href="#contacto" onClick={closeMenu}>Contacto &amp; Presupuesto</a></li>
           </ul>
