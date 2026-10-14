@@ -27,7 +27,7 @@ export default function Navbar() {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`} role="banner">
+    <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''} ${menuOpen ? 'navbar--menu-open' : ''}`} role="banner">
       <div className="navbar__container">
         {/* Brand Logo */}
         <a href="#inicio" className="navbar__brand" onClick={closeMenu} aria-label="Ir al inicio">

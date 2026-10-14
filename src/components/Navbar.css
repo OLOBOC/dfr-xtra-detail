@@ -163,6 +163,12 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
+.navbar--menu-open .navbar__hamburger {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
 /* ── Mobile Drawer ──────────────────────────────────────────── */
 .navbar__drawer {
   position: fixed;
